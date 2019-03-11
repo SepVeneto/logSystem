@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld v-bind:msg='username' />
   </div>
 </template>
 
@@ -13,6 +13,23 @@ export default {
   name: 'home',
   components: {
     HelloWorld
+  },
+  computed:
+  {
+    username() {
+      return this.GLOBAL.username;
+    }
   }
 }
 </script>
+
+<style scoped>
+.home
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+</style>
+

@@ -1,17 +1,24 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import Log from './views/Log.vue'
 
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  mode: 'hash',
   base: process.env.BASE_URL,
   routes: [
     {
       path: '/',
+      name: 'log',
+      component: Log,
+    },
+    {
+      path: '/home',
       name: 'home',
-      component: Home
+      component: Home,
+      props: true,
     },
     {
       path: '/about',
