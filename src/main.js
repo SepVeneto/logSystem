@@ -3,6 +3,8 @@ import App from './App.vue'
 import router from './router'
 import axios from'axios'
 import Global from './components/tool/Global.vue'
+import './plugins/element.js'
+
 
 Vue.config.productionTip = false
 Vue.prototype.axios = axios

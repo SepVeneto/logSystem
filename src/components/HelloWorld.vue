@@ -1,6 +1,8 @@
 <template>
   <div class="hello">
     <h1>你好，{{ msg }}</h1>
+    <router-link to='/userData'>查看用户数据</router-link>
+    <router-view></router-view>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
