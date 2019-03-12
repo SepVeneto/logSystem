@@ -2,7 +2,6 @@
     <form 
       id="app"
       v-on:submit="checkForm"
-      action="/action"
       method="POST"
     >
       <input
@@ -98,6 +97,7 @@
 
 <script>
 import Mock from 'mockjs'
+import qs from 'qs'
 
 export default {
     props:
@@ -149,15 +149,15 @@ export default {
             /********************************************************/
             /*                数据模拟                               */
             /********************************************************/
-            let data = Mock.mock('/log', 'post', ({body})=>{
-              let userInfo = JSON.parse(body);
+            let data = Mock.mock('log', 'post', ({body})=>{
+              let userInfo = qs.parse(body);
               if(userInfo.action === 'signUp')
               {
                 this.userList.push({
                   username: userInfo.username,
                   password: userInfo.pssword,
                 });
-                return '1';
+                return 1;
               }
               for(let items of this.userList)
               {
@@ -165,32 +165,32 @@ export default {
                 {
                   if(userInfo.password === items.password)
                   {
-                    return '1';
+                    return 1;
                   }
                   else
                   {
-                    return "-2";
+                    return -2;
                   }
                 }
               }
-              return '-1';
+              return -1;
             })
             /********************************************************/
             /*                   END                                */
             /********************************************************/
-            this.axios.post('/log', userInfo)
+            this.axios.post('log', qs.stringify(userInfo))
               .then(response=>{
                 switch( response.data )
                 {
-                  case '1':
+                  case 1:
                     this.$router.push('/home');
                     this.GLOBAL.username = userInfo.username;
                     console.log('success');
                     return true;
-                  case '-1':
+                  case -1:
                     this.usernameFocus = true;
                     break;
-                  case '-2':
+                  case -2:
                     this.passwordFocus = true;
                     break;
                 }
@@ -224,12 +224,12 @@ export default {
           /********************************************************/
           /*                   END                                */
           /********************************************************/
-          this.axios.post('/log', {
+          this.axios.post('log', {
             action: 'check',
             username: this.username,
           })
           .then(response=>{
-            if(response.data !== '1')
+            if(response.data !== 1)
             {
               this.nameError = '用户名已被注册';
             }

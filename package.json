@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "element-ui": "^2.6.1",
     "mockjs": "^1.0.1-beta3",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1"
@@ -15,6 +16,8 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.4.0",
     "@vue/cli-service": "^3.4.0",
+    "babel-plugin-component": "^1.1.1",
+    "vue-cli-plugin-element": "^1.0.1",
     "vue-template-compiler": "^2.5.21"
   }
 }

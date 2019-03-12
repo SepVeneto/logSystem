@@ -1,14 +1,6 @@
 <template>
-  <main id="main-container">
+  <div id="main-container">
     <router-view />
-  </main>
+  </div>
 </template>
 
-<script>
-
-</script>
-
-
-<style>
-
-</style>

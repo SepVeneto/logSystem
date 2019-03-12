@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Log from './views/Log.vue'
+import UserData from './views/UserData.vue'
 
 Vue.use(Router)
 
@@ -10,7 +11,7 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/',
+      path: '/test',
       name: 'log',
       component: Log,
     },
@@ -18,7 +19,11 @@ export default new Router({
       path: '/home',
       name: 'home',
       component: Home,
-      props: true,
+    },
+    {
+      path: '/',
+      name: 'user-data',
+      component: UserData,
     },
     {
       path: '/about',
