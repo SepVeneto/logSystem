@@ -1,6 +1,7 @@
 <template>
 <div class="table-container">
-    <table style="width: 100%">
+    <table style="width: 100%"
+      @click="clickTable">
         <tr>
             <th class="tag">编号</th> 
             <th class="tag">名称</th> 
@@ -50,6 +51,16 @@ export default {
             }]
         });
         this.pageData = m.data;
+    },
+    methods: {
+        clickTable(e)
+        {
+            let editInput = document.createElement('input');
+            editInput.add
+            e.target.textContent = '';
+            e.target.appendChild(document.createElement('input'));
+            console.log(e.target);
+        }
     }
 }
 </script>
